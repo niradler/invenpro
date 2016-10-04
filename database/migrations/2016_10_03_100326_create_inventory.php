@@ -16,7 +16,8 @@ class CreateInventory extends Migration
              Schema::create('inventories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('comment');
+            $table->string('comment')->default(null);
+            $table->boolean('share')->default(flase);
             $table->timestamps();
         });
              Schema::table('inventories', function ($table) {

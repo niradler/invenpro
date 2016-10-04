@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Inventory;
+use Validator;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+     $inventory = \DB::table('inventories')
+    ->select('inventories.*', 'users.name as user')
+    ->where('share',1)
+    ->join('users', 'users.id', '=', 'inventories.user_id')
+    ->get();
+        return view('home',compact('inventory'));
     }
 }

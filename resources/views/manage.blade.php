@@ -38,30 +38,19 @@
                                                     <i class="fa fa-btn fa-folder"></i>Show
                                                 </button>
                                             </form>
-{{--                                             <div class="dropdown">
-                                              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Actions
-                                              <span class="caret"></span></button>
-                                              <ul class="dropdown-menu">
-                                                <li> <form action="{{ url('manage/'.$inven->id) }}" method="GET">
+                                      or
+                                             <form action="{{ url('manage/'.$inven->id).'/share' }}" method="POST">
                                                 {{ csrf_field() }}
-
-                                                <button type="submit" class="btn btn-success">
-                                                    <i class="fa fa-btn fa-trash"></i>Show
+                                                <button type="submit" 
+                                                    @if($inven->share)
+                                                    {!! 'class="btn btn-success"' !!}
+                                                    @else
+                                                   {!! 'class="btn btn-primary"' !!}
+                                                    @endif
+                                                >
+                                                    <i class="fa fa-btn fa-folder"></i>Share
                                                 </button>
-                                            </form></li>
-                                                <li><form action="{{ url('manage/'.$inven->id) }}" method="POST">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-
-                                                <button type="submit" class="btn btn-danger">
-                                                    <i class="fa fa-btn fa-trash"></i>Delete
-                                                </button>
-                                            </form></li>
-                                         
-                                              </ul>
-                                            </div> --}}
-                                                
-                                                
+                                            </form>
                                             </td>
                                         </tr>
                                 @endforeach

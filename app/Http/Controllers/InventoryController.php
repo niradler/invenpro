@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Item;
+use App\Inventory;
+use Validator;
 
 class InventoryController extends Controller
 {
@@ -15,7 +18,7 @@ class InventoryController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -26,5 +29,12 @@ class InventoryController extends Controller
     public function index()
     {
         return view('inventory');
+    }
+
+            public function show($id)
+    {
+         $inventory = Inventory::where('share',1)->findOrFail($id);
+        $items= $inventory->items;
+        return view('inventory' , compact('inventory','items'));
     }
 }

@@ -33,6 +33,21 @@ class ManageController extends Controller
         $inventory = Inventory::where('user_id',$user_id)->orderBy('id', 'desc')->get();
         return view('manage' , compact('inventory'));
     }
+       public function share($id)
+    {
+             $user_id = Auth::user()->id;
+        $inventory = Inventory::where('user_id',$user_id)->findOrFail($id);
+        if($inventory->share){
+           $inventory->share = 0;
+        }
+        else{
+            $inventory->share = 1;
+        }
+        
+        $inventory->save();
+        return redirect('manage');
+
+    }
         public function show($id)
     {
          $inventory = Inventory::findOrFail($id);

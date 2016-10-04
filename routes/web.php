@@ -25,9 +25,11 @@ Route::delete('/create/{id}', 'CreateController@remove');
 
 Route::get('/manage', 'ManageController@index');
 Route::post('/manage/{id}', 'ManageController@save');
+Route::post('/manage/{id}/share', 'ManageController@share');
 Route::get('/manage/{id}', 'ManageController@show');
 Route::delete('/manage/{id}/{item_id}', 'ManageController@remove');
 
 Route::get('inventory', 'InventoryController@index');
+Route::get('inventory/{id}', 'InventoryController@show');
 
 Route::get('/profile', 'ProfileController@index');
