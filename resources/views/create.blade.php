@@ -55,6 +55,7 @@
                                             <th>#</th>
                                             <th>Name</th>
                                             <th>Comment</th>
+                                            <th>Updated</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -65,6 +66,7 @@
                                             <td>{{$inven->id}}</td>
                                             <td>{{$inven->name}}</td>
                                             <td>{{$inven->comment}}</td>
+                                             <td>{{$inven->updated_at}}</td>
                                             <td>
                                                 <form action="{{ url('create/'.$inven->id) }}" method="POST">
                                                 {{ csrf_field() }}

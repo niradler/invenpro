@@ -10,7 +10,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Create new inventory
+                            Create new item
                         </div>
                         <div class="panel-body">
                             <div class="row container">
@@ -71,6 +71,7 @@
                                             <th>Link</th>
                                             <th>Image</th>
                                             <th>Comment</th>
+                                            <th>Updated</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -92,6 +93,7 @@
                                              @endif
                                              </td>
                                             <td>{{$item->comment}}</td>
+                                             <td>{{$item->updated_at}}</td>
                                             <td>
                                                 <form action="{{ url('manage/'.$inventory->id.'/'.$item->id) }}" method="POST">
                                                 {{ csrf_field() }}

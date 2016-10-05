@@ -51,8 +51,7 @@ class CreateController extends Controller
          $newInventory->name = $request->name;
          $newInventory->save();
 
-       $inventory = Inventory::where('user_id',Auth::user()->id);
-        return view('create' , compact('inventory'));
+       return redirect('/create');
     }
 
     public function remove($id)

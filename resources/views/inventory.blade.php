@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Inventory list
+                            Inventory item list
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -23,7 +23,8 @@
                                             <th>Link</th>
                                             <th>Image</th>
                                             <th>Comment</th>
-                                            <th>Action</th>
+                                            <th>Updated</th>
+                                            {{-- <th>Action</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -44,8 +45,7 @@
                                              @endif
                                              </td>
                                             <td>{{$item->comment}}</td>
-                                            <td>
-                                            </td>
+                                            <td>{{$item->updated_at}}</td>
                                         </tr>
                                 @endforeach
                                     

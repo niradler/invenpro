@@ -40,7 +40,7 @@
                                                     <i class="fa fa-btn fa-folder"></i>Show
                                                 </button>
                                             </form>
-
+                                                <div style="height: 10px"></div>
                                              <form action="{{ url('manage/'.$inven->id).'/share' }}" method="POST">
                                                 {{ csrf_field() }}
                                                 <button type="submit" 
