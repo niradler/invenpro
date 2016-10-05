@@ -95,7 +95,7 @@
                                             <td>{{$item->comment}}</td>
                                              <td>{{$item->updated_at}}</td>
                                             <td>
-                                                <form action="{{ url('manage/'.$inventory->id.'/'.$item->id) }}" method="POST">
+                                                <form action="{{ url('manage/'.$inventory->id.'/item/'.$item->id) }}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
 

@@ -91,14 +91,17 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
+                         <form action="{{ url('home/search')}}" method="GET" class="form-horizontal" role="form">
+                         {{ csrf_field() }}
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" class="form-control" name="query" placeholder="Search...">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
+                                    <button class="btn btn-default" type="submit">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </span>
                             </div>
+                             </form>
                             <!-- /input-group -->
                         </li>
                         @if (!Auth::guest())

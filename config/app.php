@@ -163,6 +163,11 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+          /*
+         * added by user
+         */
+        //Laravel\Scout\ScoutServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
