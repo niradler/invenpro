@@ -58,6 +58,16 @@ class ManageController extends Controller
         $items= $inventory->items;
         return view('manageOne' , compact('inventory','items'));
     }
+      public function itemUpdate($id,$item_id)
+    {
+         $item = Item::findOrFail($item_id);
+         $inventory = Inventory::findOrFail($id);
+         if($inventory->user_id != Auth::user()->id)
+         {
+         return view('home');
+        }
+        return view('item' , compact('item'));
+    }
         public function remove($id,$item_id)
     {
         $item = Item::findOrFail($item_id);
@@ -81,6 +91,28 @@ class ManageController extends Controller
 
          $newItem = new Item;
          $newItem->inventory_id = $inventory->id;
+         $newItem->name = $request->name;
+         $newItem->image_url = $request->image_url;
+         $newItem->url = $request->url;
+         $newItem->comment = $request->comment;
+         $newItem->amount = $request->amount;
+         $newItem->save();
+         return redirect('/manage/'.$id);
+    }
+    public function update($id,$item_id,Request $request)
+    {
+  $validator = Validator::make($request->all(), [
+             'name' => 'required|max:255',
+         ]);
+
+         if ($validator->fails()) {
+             return
+             redirect('manage/'.$id.'item/'.$item_id)
+                 ->withInput()
+                 ->withErrors($validator);
+         }
+
+         $newItem = Item::findOrFail($item_id);
          $newItem->name = $request->name;
          $newItem->image_url = $request->image_url;
          $newItem->url = $request->url;

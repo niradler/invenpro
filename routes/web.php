@@ -29,6 +29,9 @@ Route::post('/manage/{id}', 'ManageController@save');
 Route::post('/manage/{id}/share', 'ManageController@share');
 Route::get('/manage/{id}', 'ManageController@show');
 Route::delete('/manage/{id}/item/{item_id}', 'ManageController@remove');
+Route::get('/manage/{id}/item/{item_id}', 'ManageController@itemUpdate');
+Route::put('/manage/{id}/item/{item_id}', 'ManageController@update');
+
 
 Route::get('inventory', 'InventoryController@index');
 Route::get('inventory/{id}', 'InventoryController@show');

@@ -34,7 +34,7 @@
                                         
                                         <div class="form-group ">
                                             <span class="input-group-btn">
-                                                <button class="btn btn-default" type="submit"><i class="fa  fa-plus"></i>Add
+                                                <button class="btn btn-default" type="submit"><i class="fa  fa-plus"></i> Add
                                                 </button>
                                             </span>
                                         </div>
@@ -100,7 +100,14 @@
                                                 {{ method_field('DELETE') }}
 
                                                 <button type="submit" class="btn btn-danger">
-                                                    <i class="fa fa-btn fa-trash"></i>Delete
+                                                    <i class="fa fa-btn fa-trash"></i> Delete
+                                                </button>
+                                            </form>
+                                                     <div style="height: 10px"></div>
+                                             <form action="{{ url('manage/'.$inventory->id) .'/item/' .$item->id  }}" method="GET">
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fa fa-btn fa-pencil-square"></i> Update
                                                 </button>
                                             </form>
                                             </td>

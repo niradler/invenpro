@@ -37,7 +37,7 @@
                                                 {{ csrf_field() }}
 
                                                 <button type="submit" class="btn btn-success">
-                                                    <i class="fa fa-btn fa-folder"></i>Show
+                                                    <i class="fa fa-btn fa-folder"></i> Show
                                                 </button>
                                             </form>
                                                 <div style="height: 10px"></div>
@@ -50,7 +50,7 @@
                                                    {!! 'class="btn btn-primary"' !!}
                                                     @endif
                                                 >
-                                                    <i class="fa fa-btn fa-share-alt-square"></i>Share
+                                                    <i class="fa fa-btn fa-share-alt-square"></i> Share
                                                 </button>
                                             </form>
                                             </td>
