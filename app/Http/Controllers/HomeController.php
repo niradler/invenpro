@@ -30,6 +30,7 @@ class HomeController extends Controller
      $inventory = \DB::table('inventories')
     ->select('inventories.*', 'users.name as user')
     ->where('share',1)
+    ->orderBy('updated_at' , 'dsec')
     ->join('users', 'users.id', '=', 'inventories.user_id')
     ->get();
         return view('home',compact('inventory'));

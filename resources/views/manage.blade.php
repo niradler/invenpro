@@ -20,6 +20,7 @@
                                             <th>#</th>
                                             <th>Name</th>
                                             <th>Comment</th>
+                                            <th>Updated</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -30,6 +31,7 @@
                                             <td>{{$inven->id}}</td>
                                             <td>{{$inven->name}}</td>
                                             <td>{{$inven->comment}}</td>
+                                            <td>{{$inven->updated_at}}</td>
                                             <td>
                                             <form action="{{ url('manage/'.$inven->id) }}" method="GET">
                                                 {{ csrf_field() }}
@@ -38,7 +40,7 @@
                                                     <i class="fa fa-btn fa-folder"></i>Show
                                                 </button>
                                             </form>
-                                      or
+
                                              <form action="{{ url('manage/'.$inven->id).'/share' }}" method="POST">
                                                 {{ csrf_field() }}
                                                 <button type="submit" 
@@ -48,7 +50,7 @@
                                                    {!! 'class="btn btn-primary"' !!}
                                                     @endif
                                                 >
-                                                    <i class="fa fa-btn fa-folder"></i>Share
+                                                    <i class="fa fa-btn fa-share-alt-square"></i>Share
                                                 </button>
                                             </form>
                                             </td>

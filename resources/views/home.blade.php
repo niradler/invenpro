@@ -3,10 +3,14 @@
 @section('content')
 <h1 class="page-header">Dashboard</h1>
 <!-- /.panel -->
+ 
+                           
+             <div class="row">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Stock Example
-                            <div class="pull-right">
+                            <i class="fa fa-bar-chart-o fa-fw"></i>Latest stock share
+                                  <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                                         Actions
@@ -26,15 +30,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                           
-             <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Inventory list
-                        </div>
+                      
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -45,6 +41,7 @@
                                             <th>Name</th>
                                             <th>User</th>
                                             <th>Comment</th>
+                                            <th>Updated</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -56,6 +53,7 @@
                                             <td>{{$inven->name}}</td>
                                             <td>{{$inven->user}}</td>
                                             <td>{{$inven->comment}}</td>
+                                            <td>{{$inven->updated_at}}</td>
                                             <td>
                                           <form action="{{ url('inventory/'.$inven->id) }}" method="GET">
                                                 {{ csrf_field() }}
