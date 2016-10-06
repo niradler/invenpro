@@ -30,7 +30,7 @@ class CreateController extends Controller
     public function index()
     {
     	 $user_id = Auth::user()->id;
-    	$inventory = Inventory::where('user_id',$user_id)->orderBy('id', 'desc')->get();
+    	$inventory = Inventory::where('user_id',$user_id)->orderBy('id', 'desc')->paginate(10);
         return view('create' , compact('inventory'));
      }
 

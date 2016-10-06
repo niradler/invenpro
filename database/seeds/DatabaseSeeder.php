@@ -11,6 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+    	for ($i=0; $i < 2; $i++) { 
+    		DB::table('inventories')->insert([
+            'name' => str_random(10),
+            'comment' => 'test',
+            'user_id' => '1',
+        ]);
+    	}
+    	  
+         $this->call(ItemsTableSeeder::class);
     }
 }

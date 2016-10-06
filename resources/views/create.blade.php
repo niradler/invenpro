@@ -93,4 +93,5 @@
                 <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
+             {{ $inventory->links() }}
 @endsection

@@ -33,7 +33,7 @@ class HomeController extends Controller
     ->where('share',1)
     ->orderBy('updated_at' , 'dsec')
     ->join('users', 'users.id', '=', 'inventories.user_id')
-    ->get();
+    ->paginate(10);
         return view('home',compact('inventory'));
     }
     public function search(Request $request)
@@ -46,8 +46,7 @@ class HomeController extends Controller
     ->where('items.name', 'LIKE', '%'.$res .'%')
     ->take(20)
     ->join('items', 'items.inventory_id', '=', 'inventories.id')
-    ->get();
-        //$items =  Item::where('name', 'LIKE', '%'.$res .'%')->take(10)->get();        
+    ->paginate(10);  
         
         return view('inventory',compact('items'));
     }

@@ -30,7 +30,7 @@ class ManageController extends Controller
     public function index()
     {
              $user_id = Auth::user()->id;
-        $inventory = Inventory::where('user_id',$user_id)->orderBy('id', 'desc')->get();
+        $inventory = Inventory::where('user_id',$user_id)->orderBy('id', 'desc')->paginate(10);
         return view('manage' , compact('inventory'));
     }
        public function share($id)
@@ -55,7 +55,8 @@ class ManageController extends Controller
          {
          return view('home');
         }
-        $items= $inventory->items;
+        //$items= $inventory->items;
+        $items=Item::where('inventory_id',$inventory->id)->orderBy('id', 'desc')->paginate(10);
         return view('manageOne' , compact('inventory','items'));
     }
       public function itemUpdate($id,$item_id)

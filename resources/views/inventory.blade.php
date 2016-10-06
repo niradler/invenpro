@@ -65,5 +65,5 @@
                 <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
-           
+            {{ $items->links() }}
 @endsection

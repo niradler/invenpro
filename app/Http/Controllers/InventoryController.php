@@ -34,7 +34,7 @@ class InventoryController extends Controller
             public function show($id)
     {
          $inventory = Inventory::where('share',1)->findOrFail($id);
-        $items= $inventory->items;
+       $items=Item::where('inventory_id',$inventory->id)->orderBy('updated_at', 'desc')->paginate(10);
         return view('inventory' , compact('inventory','items'));
     }
 }
