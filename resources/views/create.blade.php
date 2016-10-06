@@ -17,7 +17,12 @@
                                 
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="name" id="name" class="form-control" required="">
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="name" required="">
+                           {{--                  <p class="help-block">Example block-level help text here.</p> --}}
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Comment</label>
+                                            <input type="text" name="comment" id="comment" class="form-control" placeholder="short description">
                            {{--                  <p class="help-block">Example block-level help text here.</p> --}}
                                         </div>
                                         
@@ -39,7 +44,15 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
              <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">

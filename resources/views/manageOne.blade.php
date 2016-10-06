@@ -17,7 +17,6 @@
                                 <div class="col-lg-6">
                                 <form action="{{ url('manage/'.$inventory->id) }}" method="POST" class="form-horizontal" role="form">
                                   {{ csrf_field() }}
-                                
                                         <div class="form-group">
                                             <label>Name</label>
                                             <input type="text" name="name" id="name" class="form-control" required="">
@@ -27,7 +26,7 @@
                                             <input type="url" name="url" id="url" class="form-control" >
                                             <label>Image url</label>
                                             <input type="url" name="image_url" id="image_url" class="form-control" >
-                                             <label>Comment</label>
+                                            <label>Comment</label>
                                             <textarea  type="text" name="comment" id="comment" class="form-control" ></textarea>
                            {{--                  <p class="help-block">Example block-level help text here.</p> --}}
                                         </div>
@@ -51,6 +50,15 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
              <div class="row">
                 <div class="col-lg-12">

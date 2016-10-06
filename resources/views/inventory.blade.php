@@ -65,5 +65,7 @@
                 <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
+            @if(isset($items))
             {{ $items->links() }}
+             @endif
 @endsection

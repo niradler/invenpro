@@ -38,6 +38,7 @@ class CreateController extends Controller
     {
   $validator = Validator::make($request->all(), [
              'name' => 'required|max:255',
+             'comment' => 'max:255',
          ]);
 
          if ($validator->fails()) {
@@ -49,6 +50,7 @@ class CreateController extends Controller
          $newInventory = new Inventory;
          $newInventory->user_id = Auth::user()->id;
          $newInventory->name = $request->name;
+         $newInventory->comment = $request->comment;
          $newInventory->save();
 
        return redirect('/create');

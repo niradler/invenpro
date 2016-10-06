@@ -20,7 +20,7 @@
                                 {{ method_field('PUT') }}
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="name" id="name" class="form-control" required="" value="{{$item->name}}">
+                                            <input type="text" name="name" id="name" class="form-control"  value="{{$item->name}}">
                                              <label>Amount</label>
                                             <input type="number" name="amount" id="amount" class="form-control" required="" value="{{$item->amount}}">
                                             <label>Url</label>
@@ -28,8 +28,7 @@
                                             <label>Image url</label>
                                             <input type="url" name="image_url" id="image_url" class="form-control" value="{{$item->image_url}}">
                                              <label>Comment</label>
-                                            <textarea  type="text" name="comment" id="comment" class="form-control" value="{{$item->comment}}"></textarea>
-                           {{--                  <p class="help-block">Example block-level help text here.</p> --}}
+                                            <textarea  type="text" name="comment" id="comment" class="form-control" >{{$item->comment}}</textarea>
                                         </div>
                                         
                                         <div class="form-group ">
@@ -51,4 +50,13 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+                        @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 @endsection
