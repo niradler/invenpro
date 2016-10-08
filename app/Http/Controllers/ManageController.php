@@ -25,28 +25,44 @@ class ManageController extends Controller
     /**
     *reponse to route /manage
      */
-    public function index()
+    public function index(Request $request)
     {
+         $order='dsec';
+         $sortby ='updated_at';
+        if($request->sort){
+            $sortby=$request->sort;
+        }
+        if($request->order){
+           $order=$request->order;
+        }
              $user_id = Auth::user()->id;
-        $inventory = Inventory::where('user_id',$user_id)->orderBy('id', 'desc')->paginate(10);
+        $inventory = Inventory::where('user_id',$user_id)->orderBy($sortby, $order)->paginate(10);
         return view('manage' , compact('inventory'));
     }
 
       /**
     *reponse to route /manage/{id}
      */
-            public function show($id)
+            public function show($id,Request $request)
     {
+        $order='dsec';
+         $sortby ='id';
+        if($request->sort){
+            $sortby=$request->sort;
+        }
+        if($request->order){
+           $order=$request->order;
+        }
          $inventory = Inventory::findOrFail($id);
          if($inventory->user_id != Auth::user()->id)
          {
          return view('home');
         }
         //$items= $inventory->items;
-        $items=Item::where('inventory_id',$inventory->id)->orderBy('id', 'desc')->paginate(10);
+        $items=Item::where('inventory_id',$inventory->id)->orderBy('id', $order)->paginate(10);
         return view('manageOne' , compact('inventory','items'));
     }
-
+ 
       /**
     *toggle share field for inventory
      */

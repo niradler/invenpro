@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Validator;
+use App\User;
+use Auth;
 
 class ProfileController extends Controller
 {
@@ -25,6 +28,21 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile');
+         $user = Auth::user();
+        return view('profile',compact('user'));
+    }
+      public function reset()
+    {
+        Auth::logout();
+        return redirect('/password/reset');
+    }
+      public function update(Request $request)
+    {
+         $user_id = Auth::user()->id;
+         $user = User::find($user_id);
+         $user->name = $request->name;
+         $user->email = $request->email;
+         $user->save();
+        return view('profile',compact('user'));
     }
 }

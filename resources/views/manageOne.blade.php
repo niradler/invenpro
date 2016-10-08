@@ -65,6 +65,22 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Inventory list
+                              <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Sort
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                      <li><a href="{{ url('manage/'.$items[0]->inventory_id .'?sort=updated_at') }}">Updated</a>
+                                        </li>
+                                        <li><a href="{{ url('manage/'.$items[0]->inventory_id .'?sort=name&order=asc') }}">Name</a>
+                                        </li>
+                                        <li><a href="{{ url('manage/'.$items[0]->inventory_id .'?sort=id&order=asc') }}">Id</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">

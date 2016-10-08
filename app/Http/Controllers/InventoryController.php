@@ -31,10 +31,18 @@ class InventoryController extends Controller
         return view('inventory');
     }
 
-            public function show($id)
+            public function show($id,Request $request)
     {
+        $order='dsec';
+         $sortby ='updated_at';
+        if($request->sort){
+            $sortby=$request->sort;
+        }
+        if($request->order){
+           $order=$request->order;
+        }
          $inventory = Inventory::where('share',1)->findOrFail($id);
-       $items=Item::where('inventory_id',$inventory->id)->orderBy('updated_at', 'desc')->paginate(10);
+       $items=Item::where('inventory_id',$inventory->id)->orderBy($sortby, $order)->paginate(10);
         return view('inventory' , compact('inventory','items'));
     }
 }

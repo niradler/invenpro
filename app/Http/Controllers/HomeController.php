@@ -26,12 +26,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $order='dsec';
+         $sortby ='updated_at';
+        if($request->sort){
+            $sortby=$request->sort;
+        }
+        if($request->order){
+           $order=$request->order;
+        }
      $inventory = \DB::table('inventories')
     ->select('inventories.*', 'users.name as user')
     ->where('share',1)
-    ->orderBy('updated_at' , 'dsec')
+    ->orderBy($sortby , $order)
     ->join('users', 'users.id', '=', 'inventories.user_id')
     ->paginate(10);
         return view('home',compact('inventory'));

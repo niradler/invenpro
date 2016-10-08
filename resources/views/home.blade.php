@@ -13,18 +13,15 @@
                                   <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
+                                        Sort
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
+                                        <li><a href="{{ url('home?sort=updated_at') }}">Updated</a>
                                         </li>
-                                        <li><a href="#">Another action</a>
+                                        <li><a href="{{ url('home?sort=name&order=asc') }}">Name</a>
                                         </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
+                                        <li><a href="{{ url('home?sort=id&order=asc') }}">Id</a>
                                         </li>
                                     </ul>
                                 </div>

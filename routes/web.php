@@ -37,3 +37,5 @@ Route::get('inventory', 'InventoryController@index');
 Route::get('inventory/{id}', 'InventoryController@show');
 
 Route::get('/profile', 'ProfileController@index');
+Route::put('/profile/update', 'ProfileController@update');
+Route::get('/profile/reset', 'ProfileController@reset');
